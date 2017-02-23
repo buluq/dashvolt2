@@ -1,0 +1,39 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+$config['site_name'] = 'Dashboard Web';
+
+$config['menu'] = array(
+	'web_post' => array(
+		'url'    => '/submit/web_post',
+		'label'  => 'submit pos',
+		'icon'   => 'uk-icon-send',
+		'action' => 'kirim',
+		'panel'  => 'active',
+		'parent' => 'submit',
+		'file'   => "",
+		'note'   => "<p>Ini adalah form untuk input data pos web yang sudah kamu diterbitkan.</p><p>Pastikan data yang kamu isi sudah benar dan sesuai sebelum mengirimnya. Sekali form dikirimkan maka data tidak dapat diubah maupun dihapus.</p>",
+	),
+	'brochure' => array(
+		'url'    => '/request/brochure',
+		'label'  => 'request brosur',
+		'icon'   => 'uk-icon-image',
+		'action' => 'kirim',
+		'panel'  => 'active',
+		'parent' => 'request',
+		'file'   => "",
+		'note'   => "<p>Setelah melakukan request, jangan lupa kirim notif ke tim multimedia biar bisa diproses.</p>",
+	),
+	'inquiry' => array(
+		'url'    => '/request/inquiry',
+		'label'  => 'request inquiry',
+		'icon'   => 'uk-icon-barcode',
+		'action' => 'kirim',
+		'panel'  => 'active',
+		'parent' => 'request',
+		'file'   => "",
+		'note'   => "<p>Pastikan data yang diisi lengkap untuk mempercepat proses pencarian vendor.</p>",
+	),
+);
+
+$config['parent_menu'] = array('submit', 'request');
