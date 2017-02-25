@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Request extends CI_Controller {
+class Request extends SA_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,29 +19,23 @@ class Request extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function brochure() {
-		$data['site_name']   = $this->config->item('site_name');
-		$data['parent_menu'] = $this->config->item('parent_menu');
-		$data['panel_menu']  = $this->config->item('menu');
-		$data['file']        = $data['panel_menu']['brochure']['file'];
-		$data['note']        = $data['panel_menu']['brochure']['note'];
-
-		$data['page_navbar'] = $this->load->view('parts/navbar', $data, true);
-		$data['page_layout'] = $this->load->view('layouts/dashboard', $data, true);
-
-		$this->load->view('base', $data);
+		$data = $this->set_data('brochure_request');
+		$this->generate_page($data);
 	}
 
 	public function inquiry() {
-		$data['site_name']   = $this->config->item('site_name');
-		$data['parent_menu'] = $this->config->item('parent_menu');
-		$data['panel_menu']  = $this->config->item('menu');
-		$data['file']        = $data['panel_menu']['inquiry']['file'];
-		$data['note']        = $data['panel_menu']['inquiry']['note'];
+		$data = $this->set_data('inquiry_request');
+		$this->generate_page($data);
+	}
 
-		$data['page_navbar'] = $this->load->view('parts/navbar', $data, true);
-		$data['page_layout'] = $this->load->view('layouts/dashboard', $data, true);
+	public function web_tech() {
+		$data = $this->set_data('web_support_request');
+		$this->generate_page($data);
+	}
 
-		$this->load->view('base', $data);
+	public function seo() {
+		$data = $this->set_data('seo_support_request');
+		$this->generate_page($data);
 	}
 }
 

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Submit extends CI_Controller {
+class Journal extends SA_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,16 +19,18 @@ class Submit extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function web_post() {
-		$data['site_name']   = $this->config->item('site_name');
-		$data['parent_menu'] = $this->config->item('parent_menu');
-		$data['panel_menu']  = $this->config->item('menu');
-		$data['file']        = $data['panel_menu']['web_post']['file'];
-		$data['note']        = $data['panel_menu']['web_post']['note'];
+		$data = $this->set_data('web_post_journal');
+		$this->generate_page($data);
+	}
 
-		$data['page_navbar'] = $this->load->view('parts/navbar', $data, true);
-		$data['page_layout'] = $this->load->view('layouts/dashboard', $data, true);
+	public function customer_services() {
+		$data = $this->set_data('cr_journal');
+		$this->generate_page($data);
+	}
 
-		$this->load->view('base', $data);
+	public function follow_up() {
+		$data = $this->set_data('follow_up_journal');
+		$this->generate_page($data);
 	}
 }
 

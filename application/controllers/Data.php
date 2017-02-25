@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Page extends SA_Controller {
+class Data extends SA_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,8 +18,18 @@ class Page extends SA_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index() {
-		$data = $this->set_data('', 'homepage');
+	public function product() {
+		$data = $this->set_data('product_data');
+		$this->generate_page($data);
+	}
+
+	public function inquiry() {
+		$data = $this->set_data('inquiry_data');
+		$this->generate_page($data);
+	}
+
+	public function web_post() {
+		$data = $this->set_data('post_data');
 		$this->generate_page($data);
 	}
 }
