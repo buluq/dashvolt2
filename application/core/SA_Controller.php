@@ -2,6 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class SA_Controller extends CI_Controller {
+
+	protected function generate_page($data, $base = 'base') {
+		$this->load->view($base, $data);
+	}
+
 	protected function set_data($service = '', $layout = 'dashboard', $additional = '') {
 		$data['site_name']   = $this->config->item('site_name');
 		$data['parent_menu'] = $this->config->item('parent_menu');
@@ -22,9 +27,6 @@ class SA_Controller extends CI_Controller {
 		return $data;
 	}
 
-	protected function generate_page($data, $base = 'base') {
-		$this->load->view($base, $data);
-	}
 }
 
 /* End of file: Controller.php */
