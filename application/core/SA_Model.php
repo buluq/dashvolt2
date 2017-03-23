@@ -3,6 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class SA_Model extends CI_Model {
 
+	public function __construct() {
+		parent::__construct();
+
+		$this->load->database();
+	}
+
+	protected function count_by($column, $value, $table) {
+		$this->db->where($column, $value);
+		$this->db->from($table);
+		return $this->db->count_all_results();
+	}
+
 	protected function delete($column, $value, $table) {
 		$this->db->where($column, $value);
 		$this->db->delete($table);

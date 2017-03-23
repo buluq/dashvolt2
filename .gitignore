@@ -13,6 +13,10 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 
+application/sessions/*
+!application/sessions/index.html
+!application/sessions/.htaccess
+
 user_guide/
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
